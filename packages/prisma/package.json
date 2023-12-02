@@ -1,0 +1,23 @@
+{
+  "name": "@school/prisma",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "generate": "yarn prisma generate",
+    "lint": "yarn prisma format",
+    "db-studio": "yarn prisma studio",
+    "db-deploy": "yarn prisma db push",
+    "db-migrate": "yarn prisma migrate dev"
+  },
+  "devDependencies": {
+    "prisma": "^4.11.0",
+    "zod-prisma": "^0.5.4"
+  },
+  "dependencies": {
+    "@prisma/client": "^4.11.0"
+  }
+}

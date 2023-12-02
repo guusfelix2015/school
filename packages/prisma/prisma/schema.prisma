@@ -1,0 +1,62 @@
+datasource db {
+  provider   = "postgresql"
+  url        = env("DATABASE_URL")
+  extensions = [pgcrypto]
+}
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["fullTextSearch", "postgresqlExtensions"]
+}
+
+generator zod {
+  provider              = "zod-prisma"
+  output                = "./zod"
+  relationModel         = true
+  prismaJsonNullability = true
+}
+
+model User {
+  id              Int       @id @default(autoincrement())
+  name            String
+  email           String    @unique
+  emailVerifiedAt DateTime? @db.Timestamptz(3)
+  password        String
+  createdAt       DateTime  @default(now()) @db.Timestamptz(3)
+  upatedAt        DateTime  @updatedAt @db.Timestamptz(3)
+  session           Session[]
+
+  @@map("users")
+}
+
+model ResetPasswordRequest {
+  id         String    @id @default(cuid())
+  email      String
+  expiresAt  DateTime  @db.Timestamptz(3)
+  resettedAt DateTime? @db.Timestamptz(3)
+  createdAt  DateTime  @default(now()) @db.Timestamptz(3)
+  updatedAt  DateTime  @updatedAt @db.Timestamptz(3)
+
+  @@map("reset_password_requests")
+}
+
+model Session {
+  id          String    @id @default(uuid())
+  userId      Int
+  expires     DateTime  @db.Timestamptz(3)
+  isRevoked   Boolean   @default(false)
+  userAgent   String?
+  ipAddress   String?
+  metadata    Json      @default("{}")
+  createdAt   DateTime  @default(now()) @db.Timestamptz(3)
+  updatedAt   DateTime  @updatedAt @db.Timestamptz(3)
+  user        User      @relation(fields: [userId], references: [id])
+
+  @@map("sessions")
+}
+
+
+
+
+
+

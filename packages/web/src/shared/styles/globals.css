@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-color: #ff8400;
+  --brand-text-color: #ffffff;
+}
+
+html,
+body {
+  min-height: 100vh;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+.PhoneInput {
+  background-color: transparent;
+}
+
+.PhoneInput .PhoneInputCountrySelectArrow {
+  margin-left: 8px !important;
+}
+
+.PhoneInput--focus .PhoneInputCountrySelectArrow {
+  color: #000 !important;
+}
+
+.PhoneInputCountry {
+  padding: 8px 0 8px 12px;
+  color: #000 !important;
+}
+
+.PhoneInputInput {
+  background-color: transparent;
+  height: 100%;
+  font-size: 14px;
+  font-family: Inter, sans-serif;
+  padding-left: 8px;
+  outline: none;
+}

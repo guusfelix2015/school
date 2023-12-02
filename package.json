@@ -1,0 +1,50 @@
+{
+  "name": "school",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "lint": "turbo run lint",
+    "api:start": "turbo run start --scope=@school/api",
+    "api:dev": "turbo run dev --scope=@school/api",
+    "api:build": "turbo run build --scope=@school/api",
+    "web:dev": "turbo run dev --scope=@school/web",
+    "web:build": "turbo run build --scope=@school/web",
+    "db:build": "turbo run build --scope=@school/prisma",
+    "db:generate": "turbo run generate --scope=@school/prisma",
+    "db:migrate": "turbo run db-migrate --scope=@school/prisma",
+    "db:deploy": "turbo run db-deploy --scope=@school/prisma",
+    "db:studio": "turbo run db-studio --scope=@school/prisma",
+    "dev": "turbo run dev --scope=@school/api --scope=@school/web",
+    "build": "turbo run build"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": [
+      "**/@nestjs/**"
+    ]
+  },
+  "dependencies": {
+    "dayjs": "^1.11.7",
+    "exceljs": "^4.3.0",
+    "zod": "^3.21.4"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.56.0",
+    "@typescript-eslint/parser": "^5.56.0",
+    "eslint": "^8.36.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-config-standard-with-typescript": "^34.0.1",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.6.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.32.2",
+    "prettier": "^2.8.7",
+    "turbo": "^1.8.5",
+    "typescript": "^4.9.5"
+  }
+}

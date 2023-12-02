@@ -1,0 +1,11 @@
+export enum QuestionType {
+  TEXT = 'TEXT',
+  LONG_TEXT = 'LONG_TEXT',
+  EMAIL = 'EMAIL',
+  PHONE = 'PHONE',
+  NUMERIC = 'NUMERIC',
+  DATE = 'DATE',
+  TIME = 'TIME',
+  SINGLE_CHOICE = 'SINGLE_CHOICE',
+  MULTIPLE_CHOICE = 'MULTIPLE_CHOICE',
+}

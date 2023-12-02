@@ -1,0 +1,44 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "pipeline": {
+    "build": {
+      "outputs": ["dist/**"]
+    },
+    "lint": {
+      "outputs": []
+    },
+    "@school/api#start": {
+      "cache": false,
+      "outputs": []
+    },
+    "@school/api#dev": {
+      "cache": false,
+      "outputs": []
+    },
+    "@school/api#build": {
+      "dependsOn": ["@school/prisma#generate"]
+    },
+    "@school/web#dev": {
+      "cache": false,
+      "outputs": []
+    },
+    "@school/web#build": {
+      "cache": false,
+      "dependsOn": ["@school/prisma#generate"]
+    },
+    "@school/prisma#generate": {
+      "dependsOn": ["@school/prisma#build"]
+    },
+    "@school/prisma#db-migrate": {
+      "cache": false
+    },
+    "@school/prisma#db-deploy": {
+      "cache": false,
+      "dependsOn": ["@school/prisma#build"]
+    },
+    "@school/prisma#db-studio": {
+      "cache": false,
+      "dependsOn": ["@school/prisma#build"]
+    }
+  }
+}

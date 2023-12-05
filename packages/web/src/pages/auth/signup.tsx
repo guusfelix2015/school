@@ -100,9 +100,7 @@ export const SignupPage = () => {
   return (
     <div className="flex h-full min-h-screen w-full items-center justify-center bg-gray-100">
       <div className="w-[25rem] max-w-full p-4 sm:p-0">
-        <div className="mb-8">
-          <img src="/logo.svg" className="mx-auto w-10" />
-        </div>
+        <div className="mb-8">Logo</div>
         <div className="border-1 rounded-lg border-gray-200 bg-white px-4 py-10 shadow-md sm:px-10">
           <h4 className="mb-8 text-center text-lg font-semibold leading-none text-gray-700">
             Criar nova conta
